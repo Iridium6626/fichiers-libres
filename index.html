@@ -6,7 +6,6 @@
     <title>Oral Blanks Downloads</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Styles généraux */
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #0c3534; /* Fond */
@@ -14,18 +13,7 @@
             margin: 0;
             padding: 20px;
             line-height: 1.6;
-            background: linear-gradient(to bottom, #0c3534, #004547); /* Dégradé pour l'arrière-plan */
-            overflow-x: hidden; /* Pour empêcher le débordement horizontal */
-            animation: backgroundAnimation 10s ease infinite alternate; /* Animation de l'arrière-plan */
         }
-
-        /* Animation de l'arrière-plan */
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        /* Styles des titres */
         h1, h2 {
             color: #ee9c08; /* Titres */
             position: relative;
@@ -34,9 +22,7 @@
             padding-bottom: 5px;
             margin-bottom: 10px;
             text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
-            transition: color 0.3s, border-color 0.3s; /* Transition fluide */
         }
-
         h1::before, h2::before {
             content: attr(data-text);
             position: absolute;
@@ -45,18 +31,13 @@
             z-index: -1;
             color: transparent;
         }
-
-        /* Styles des listes */
         ul {
             list-style-type: none;
             padding: 0;
         }
-
         li {
             margin: 15px 0;
         }
-
-        /* Styles des liens de téléchargement */
         a {
             text-decoration: none;
             color: #efedd8; /* Texte blanc */
@@ -64,31 +45,22 @@
             padding: 10px 15px;
             border-radius: 5px;
             margin-right: 10px;
-            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s; /* Transitions fluides */
+            transition: background-color 0.3s, transform 0.1s;
             position: relative;
             display: inline-block;
-            overflow: hidden; /* Pour l'effet de parallaxe */
         }
-
         a:hover {
             background-color: #4a8584; /* Hover boutons */
             transform: scale(1.02); /* Effet de survol */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre légère au survol */
         }
-
         a:active {
             transform: scale(0.98);
         }
-
-        /* Icône de téléchargement */
         .download-icon {
             font-size: 18px;
             vertical-align: middle;
             margin-right: 5px;
-            transition: transform 0.3s;
         }
-
-        /* Message de téléchargement */
         .download-message {
             display: none;
             position: absolute;
@@ -103,13 +75,10 @@
             z-index: 1;
             transition: opacity 0.3s;
         }
-
         .download-message.show {
             display: block;
             opacity: 1;
         }
-
-        /* Animation de chargement */
         .loading-animation {
             display: none;
             position: absolute;
@@ -124,7 +93,6 @@
             border-top-color: transparent;
             animation: spin 1s linear infinite;
         }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -209,7 +177,15 @@
 
         function showLoadingAnimation(element) {
             var animation = element.nextElementSibling;
+            var icon = element.querySelector('.download-icon');
+            icon.style.display = 'none'; // Cacher l'icône de téléchargement
             animation.style.display = 'block';
+
+            // Après 2 secondes (simulation de téléchargement)
+            setTimeout(function() {
+                animation.style.display = 'none'; // Cacher l'animation de chargement
+                icon.style.display = 'inline'; // Réafficher l'icône de téléchargement
+            }, 2000);
         }
     </script>
 </body>
