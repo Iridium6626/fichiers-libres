@@ -14,22 +14,13 @@
             padding: 20px;
             line-height: 1.6;
         }
-        h1, h2 {
+        h1 {
             color: #ee9c08; /* Titres */
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px solid #5ba2a1; /* Bordure bleu clair moins épaisse */
-            padding-bottom: 5px;
-            margin-bottom: 10px;
             text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
         }
-        h1::before, h2::before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            color: transparent;
+        h2 {
+            color: #ee9c08; /* Titres */
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
         }
         ul {
             list-style-type: none;
@@ -97,73 +88,122 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Style pour les onglets déroulants */
+        details {
+            background-color: transparent;
+            margin: 10px 0;
+            padding: 0;
+            border: none;
+        }
+        summary {
+            color: #ee9c08; /* Texte jaune */
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            border-bottom: 1px solid #5ba2a1; /* Bordure bleu clair */
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            transition: font-size 0.3s;
+            font-size: 18px; /* Taille de police augmentée */
+        }
+        summary:hover {
+            font-size: 110%; /* Agrandissement au survol */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Cache le marqueur par défaut */
+        }
+        .category-title {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        /* Style de la bordure autour des détails ouverts */
+        details[open] {
+            border: 1px solid #5ba2a1; /* Bordure bleu clair */
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1 data-text="Oral Blanks Downloads">Oral Blanks Downloads</h1>
+    <h1>Oral Blanks Downloads</h1>
 
-    <ul>
-        <li>
-            <a href="Oraux_blancs/Sujet_oral_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                Sujet Oral 1
-                <span class="download-message">Téléchargement</span>
-            </a>
-            <span class="loading-animation"></span>
-        </li>
-        <li>
-            <a href="Oraux_blancs/Tonneau_et_neige.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                Tonneau et Neige
-                <span class="download-message">Téléchargement</span>
-            </a>
-            <span class="loading-animation"></span>
-        </li>
-    </ul>
+    <!-- Onglet déroulant pour Oral 1 -->
+    <details>
+        <summary class="category-title">Oral 1</summary>
+        <ul>
+            <li>
+                <a href="Oraux_blancs/Sujet_oral_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                    Sujet Oral 1
+                    <span class="download-message">Téléchargement</span>
+                </a>
+                <span class="loading-animation"></span>
+            </li>
+            <li>
+                <a href="Oraux_blancs/Tonneau_et_neige.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                    Tonneau et Neige
+                    <span class="download-message">Téléchargement</span>
+                </a>
+                <span class="loading-animation"></span>
+            </li>
+        </ul>
+    </details>
 
-    <h2 data-text="Oral 2">Oral 2</h2>
-    <ul>
-        <li>
-            <a href="Oraux_blancs/Sujet_oral_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                Sujet Oral 2
-                <span class="download-message">Téléchargement</span>
-            </a>
-            <span class="loading-animation"></span>
-        </li>
-        <li>
-            <a href="Oraux_blancs/Cave_et_coin.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                Cave et Coin
-                <span class="download-message">Téléchargement</span>
-            </a>
-            <span class="loading-animation"></span>
-        </li>
-    </ul>
+    <!-- Onglet déroulant pour Oral 2 -->
+    <details>
+        <summary class="category-title">Oral 2</summary>
+        <ul>
+            <li>
+                <a href="Oraux_blancs/Sujet_oral_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                    Sujet Oral 2
+                    <span class="download-message">Téléchargement</span>
+                </a>
+                <span class="loading-animation"></span>
+            </li>
+            <li>
+                <a href="Oraux_blancs/Cave_et_coin.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                    Cave et Coin
+                    <span class="download-message">Téléchargement</span>
+                </a>
+                <span class="loading-animation"></span>
+            </li>
+        </ul>
+    </details>
 
-    <h2 data-text="Oral 3">Oral 3</h2>
-    <ul>
-        <li>
-            <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                Sujet Oral 3 CCINP
-                <span class="download-message">Téléchargement</span>
-            </a>
-            <span class="loading-animation"></span>
-        </li>
-    </ul>
+    <!-- Onglet déroulant pour Oral 3 -->
+    <details>
+        <summary class="category-title">Oral 3</summary>
+        <ul>
+            <li>
+                <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                    Sujet Oral 3 CCINP
+                    <span class="download-message">Téléchargement</span>
+                </a>
+                <span class="loading-animation"></span>
+            </li>
+        </ul>
+    </details>
 
-    <h2 data-text="Oral 4">Oral 4</h2>
-    <ul>
-        <li>
-            <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                Sujet Oral 4 Centrale Info
-                <span class="download-message">Téléchargement</span>
-            </a>
-            <span class="loading-animation"></span>
-        </li>
-    </ul>
+    <!-- Onglet déroulant pour Oral 4 -->
+    <details>
+        <summary class="category-title">Oral 4</summary>
+        <ul>
+            <li>
+                <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                    Sujet Oral 4 Centrale Info
+                    <span class="download-message">Téléchargement</span>
+                </a>
+                <span class="loading-animation"></span>
+            </li>
+        </ul>
+    </details>
 
     <script>
         function showMessage(element) {
@@ -177,15 +217,10 @@
 
         function showLoadingAnimation(element) {
             var animation = element.nextElementSibling;
-            var icon = element.querySelector('.download-icon');
-            icon.style.display = 'none'; // Cacher l'icône de téléchargement
             animation.style.display = 'block';
-
-            // Après 2 secondes (simulation de téléchargement)
             setTimeout(function() {
-                animation.style.display = 'none'; // Cacher l'animation de chargement
-                icon.style.display = 'inline'; // Réafficher l'icône de téléchargement
-            }, 2000);
+                animation.style.display = 'none';
+            }, 2000); // Cache l'animation après 2 secondes (simulation de téléchargement)
         }
     </script>
 </body>
