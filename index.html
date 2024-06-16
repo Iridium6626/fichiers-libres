@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oral Blanks Downloads</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0c3534;
-            color: #efedd8;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0c3534; /* Fond */
+            color: #efedd8; /* Texte principal */
             margin: 0;
             padding: 20px;
             line-height: 1.6;
         }
         h1, h2 {
-            color: #5ba2a1;
+            color: #ee9c08; /* Titres */
             position: relative;
             display: inline-block;
-            border-bottom: 2px solid #b8d6d5; /* Bordure bleu clair */
+            border-bottom: 1px solid #5ba2a1; /* Bordure bleu clair moins épaisse */
             padding-bottom: 5px;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
         }
         h1::before, h2::before {
             content: attr(data-text);
@@ -28,7 +30,6 @@
             left: 0;
             z-index: -1;
             color: transparent;
-            -webkit-text-stroke: 1px black;
         }
         ul {
             list-style-type: none;
@@ -39,8 +40,8 @@
         }
         a {
             text-decoration: none;
-            color: #f5eb62; /* Texte en jaune */
-            background-color: #5ba2a1;
+            color: #efedd8; /* Texte blanc */
+            background-color: #5ba2a1; /* Fond boutons bleu clair */
             padding: 10px 15px;
             border-radius: 5px;
             margin-right: 10px;
@@ -49,10 +50,16 @@
             display: inline-block;
         }
         a:hover {
-            background-color: #4a8584;
+            background-color: #4a8584; /* Hover boutons */
+            transform: scale(1.02); /* Effet de survol */
         }
         a:active {
             transform: scale(0.98);
+        }
+        .download-icon {
+            font-size: 18px;
+            vertical-align: middle;
+            margin-right: 5px;
         }
         .download-message {
             display: none;
@@ -60,10 +67,10 @@
             left: 110%;
             top: 50%;
             transform: translateY(-50%);
-            background-color: #5ba2a1;
+            background-color: #5ba2a1; /* Fond message téléchargement */
             padding: 5px 10px;
             border-radius: 5px;
-            color: #f5eb62; /* Texte en jaune */
+            color: #efedd8; /* Texte message téléchargement */
             white-space: nowrap;
             z-index: 1;
             transition: opacity 0.3s;
@@ -72,70 +79,105 @@
             display: block;
             opacity: 1;
         }
+        .loading-animation {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ee9c08; /* Couleur jaune */
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <h1 data-text="Oral Blanks Downloads">Oral Blanks Downloads</h1>
 
-    <h2 data-text="Oral 1">Oral 1</h2>
     <ul>
         <li>
-            <a href="Oraux_blancs/Sujet_oral_1.pdf" download onclick="showMessage(this)">
+            <a href="Oraux_blancs/Sujet_oral_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
                 Sujet Oral 1
                 <span class="download-message">Téléchargement</span>
             </a>
+            <span class="loading-animation"></span>
         </li>
         <li>
-            <a href="Oraux_blancs/Tonneau_et_neige.pdf" download onclick="showMessage(this)">
+            <a href="Oraux_blancs/Tonneau_et_neige.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
                 Tonneau et Neige
                 <span class="download-message">Téléchargement</span>
             </a>
+            <span class="loading-animation"></span>
         </li>
     </ul>
 
     <h2 data-text="Oral 2">Oral 2</h2>
     <ul>
         <li>
-            <a href="Oraux_blancs/Sujet_oral_2.pdf" download onclick="showMessage(this)">
+            <a href="Oraux_blancs/Sujet_oral_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
                 Sujet Oral 2
                 <span class="download-message">Téléchargement</span>
             </a>
+            <span class="loading-animation"></span>
         </li>
         <li>
-            <a href="Oraux_blancs/Cave_et_coin.pdf" download onclick="showMessage(this)">
+            <a href="Oraux_blancs/Cave_et_coin.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
                 Cave et Coin
                 <span class="download-message">Téléchargement</span>
             </a>
+            <span class="loading-animation"></span>
         </li>
     </ul>
 
     <h2 data-text="Oral 3">Oral 3</h2>
     <ul>
         <li>
-            <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download onclick="showMessage(this)">
+            <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
                 Sujet Oral 3 CCINP
                 <span class="download-message">Téléchargement</span>
             </a>
+            <span class="loading-animation"></span>
         </li>
     </ul>
 
     <h2 data-text="Oral 4">Oral 4</h2>
     <ul>
         <li>
-            <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download onclick="showMessage(this)">
+            <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
                 Sujet Oral 4 Centrale Info
                 <span class="download-message">Téléchargement</span>
             </a>
+            <span class="loading-animation"></span>
         </li>
     </ul>
 
     <script>
         function showMessage(element) {
             var message = element.querySelector('.download-message');
+            message.textContent = 'Téléchargement en cours...';
             message.classList.add('show');
             setTimeout(function() {
                 message.classList.remove('show');
             }, 2000);
+        }
+
+        function showLoadingAnimation(element) {
+            var animation = element.nextElementSibling;
+            animation.style.display = 'block';
         }
     </script>
 </body>
