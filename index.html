@@ -5,205 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oral Blanks Downloads</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0c3534; /* Fond */
-            color: #efedd8; /* Texte principal */
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #ee9c08; /* Titres */
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
-        }
-        h2 {
-            color: #ee9c08; /* Titres */
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 15px 0;
-        }
-        a {
-            text-decoration: none;
-            color: #efedd8; /* Texte blanc */
-            background-color: #5ba2a1; /* Fond boutons bleu clair */
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin-right: 10px;
-            transition: background-color 0.3s, transform 0.1s;
-            position: relative;
-            display: inline-block;
-        }
-        a:hover {
-            background-color: #4a8584; /* Hover boutons */
-            transform: scale(1.02); /* Effet de survol */
-        }
-        a:active {
-            transform: scale(0.98);
-        }
-        .download-icon {
-            font-size: 18px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        .download-message {
-            display: none;
-            position: absolute;
-            left: 110%;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #5ba2a1; /* Fond message téléchargement */
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: #efedd8; /* Texte message téléchargement */
-            white-space: nowrap;
-            z-index: 1;
-            transition: opacity 0.3s;
-        }
-        .download-message.show {
-            display: block;
-            opacity: 1;
-        }
-        .loading-animation {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            width: 50px;
-            height: 50px;
-            border: 5px solid #ee9c08; /* Couleur jaune */
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* Style pour les onglets déroulants */
-        details {
-            background-color: transparent;
-            margin: 10px 0;
-            padding: 0;
-            border: none;
-        }
-        summary {
-            color: #ee9c08; /* Texte jaune */
-            font-weight: bold;
-            cursor: pointer;
-            outline: none;
-            border-bottom: 1px solid #5ba2a1; /* Bordure bleu clair */
-            padding: 5px 10px;
-            margin-bottom: 10px;
-            display: inline-block;
-            transition: font-size 0.3s;
-            font-size: 18px; /* Taille de police augmentée */
-        }
-        summary:hover {
-            font-size: 110%; /* Agrandissement au survol */
-        }
-        summary::-webkit-details-marker {
-            display: none; /* Cache le marqueur par défaut */
-        }
-        .category-title {
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-        /* Style de la bordure autour des détails ouverts */
-        details[open] {
-            border: 1px solid #5ba2a1; /* Bordure bleu clair */
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-    </style>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #0c3534; /* Fond */
+        color: #efedd8; /* Texte principal */
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+    }
+    h1 {
+        color: #ee9c08; /* Titres */
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
+        font-size: 24px; /* Taille de police */
+        margin-bottom: 20px; /* Espacement en bas */
+    }
+    h2 {
+        color: #ee9c08; /* Titres des onglets */
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Ombre portée */
+        font-size: 24px; /* Taille de police des onglets */
+        font-weight: bold; /* Texte en gras */
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin: 15px 0;
+    }
+    a {
+        text-decoration: none;
+        color: #efedd8; /* Texte blanc */
+        background-color: #5ba2a1; /* Fond boutons bleu clair */
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-right: 10px;
+        transition: background-color 0.3s, transform 0.1s;
+        position: relative;
+        display: inline-block;
+    }
+    a:hover {
+        background-color: #4a8584; /* Hover boutons */
+        transform: scale(1.02); /* Effet de survol */
+    }
+    a:active {
+        transform: scale(0.98);
+    }
+    .download-icon {
+        font-size: 18px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    .download-message {
+        display: none;
+        position: absolute;
+        left: 110%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #5ba2a1; /* Fond message téléchargement */
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #efedd8; /* Texte message téléchargement */
+        white-space: nowrap;
+        z-index: 1;
+        transition: opacity 0.3s;
+    }
+    .download-message.show {
+        display: block;
+        opacity: 1;
+    }
+    .loading-animation {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+        border: 5px solid #ee9c08; /* Couleur jaune */
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    /* Style pour les onglets déroulants */
+    details {
+        background-color: transparent;
+        margin: 10px 0;
+        padding: 0;
+        border: none;
+    }
+    summary {
+        color: #ee9c08; /* Texte jaune */
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        border-bottom: 1px solid #5ba2a1; /* Bordure bleu clair */
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        transition: font-size 0.3s, color 0.3s; /* Transition pour la taille de police et la couleur */
+        font-size: 18px; /* Taille de police augmentée */
+    }
+    summary:hover {
+        color: #ffd700; /* Texte jaune vif au survol */
+        font-size: 20px; /* Agrandissement au survol */
+    }
+    summary::-webkit-details-marker {
+        display: none; /* Cache le marqueur par défaut */
+    }
+    .category-title {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+    /* Style de la bordure autour des détails ouverts */
+    details[open] {
+        border: 1px solid #5ba2a1; /* Bordure bleu clair */
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Styles des onglets */
+    .tabs {
+        overflow: hidden;
+        border-bottom: 2px solid #5ba2a1; /* Ligne sous les onglets */
+        background-color: #0c3534; /* Fond des onglets */
+        margin-bottom: 20px;
+    }
+
+    .tablink {
+        background-color: #0c3534; /* Fond des boutons d'onglet */
+        color: #efedd8; /* Texte des boutons d'onglet */
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: background-color 0.3s, color 0.3s; /* Transition pour les couleurs */
+        font-size: 20px; /* Taille de police des boutons d'onglet */
+        font-weight: bold; /* Texte en gras */
+    }
+
+    .tablink:hover {
+        background-color: #5ba2a1; /* Hover des boutons d'onglet */
+        color: #ee9c08; /* Texte hover des boutons d'onglet */
+    }
+
+    .tablink.active {
+        background-color: #5ba2a1; /* Couleur active des boutons d'onglet */
+        color: #ee9c08; /* Texte actif des boutons d'onglet */
+    }
+
+    /* Styles du contenu des onglets */
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        background-color: #0c3534; /* Fond du contenu des onglets */
+    }
+
+    .tabcontent.show {
+        display: block;
+    }
+</style>
+
+
+
+
 </head>
 <body>
-    <h1>Oral Blanks Downloads</h1>
 
-    <!-- Onglet déroulant pour Oral 1 -->
-    <details>
-        <summary class="category-title">Oral 1</summary>
-        <ul>
-            <li>
-                <a href="Oraux_blancs/Sujet_oral_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                    Sujet Oral 1
-                    <span class="download-message">Téléchargement</span>
-                </a>
-                <span class="loading-animation"></span>
-            </li>
-            <li>
-                <a href="Oraux_blancs/Tonneau_et_neige.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                    Tonneau et Neige
-                    <span class="download-message">Téléchargement</span>
-                </a>
-                <span class="loading-animation"></span>
-            </li>
-        </ul>
-    </details>
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tablink active" onclick="openTab(event, 'oraux-blancs')">Oraux Blancs</button>
+        <button class="tablink" onclick="openTab(event, 'kholles')">Kholles</button>
+    </div>
+    
+    <!-- Contenu des tabs -->
+    <div id="oraux-blancs" class="tabcontent" style="display: block;">
+        <h2 class="category-title">Oraux blancs</h2>
+        <!-- Contenu pour les Kholles -->
+        <details>
+            <summary class="category-title">Oral 1</summary>
+            <ul>
+                <li>
+                    <a href="Oraux_blancs/Sujet_oral_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Sujet Oral 1
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+                <li>
+                    <a href="Oraux_blancs/Tonneau_et_neige.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Tonneau et Neige
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+            </ul>
+        </details>
 
-    <!-- Onglet déroulant pour Oral 2 -->
-    <details>
-        <summary class="category-title">Oral 2</summary>
-        <ul>
-            <li>
-                <a href="Oraux_blancs/Sujet_oral_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                    Sujet Oral 2
-                    <span class="download-message">Téléchargement</span>
-                </a>
-                <span class="loading-animation"></span>
-            </li>
-            <li>
-                <a href="Oraux_blancs/Cave_et_coin.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                    Cave et Coin
-                    <span class="download-message">Téléchargement</span>
-                </a>
-                <span class="loading-animation"></span>
-            </li>
-        </ul>
-    </details>
+        <details>
+            <summary class="category-title">Oral 2</summary>
+            <ul>
+                <li>
+                    <a href="Oraux_blancs/Sujet_oral_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Sujet Oral 2 CCINP
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+            </ul>
+        </details>
 
-    <!-- Onglet déroulant pour Oral 3 -->
-    <details>
-        <summary class="category-title">Oral 3</summary>
-        <ul>
-            <li>
-                <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                    Sujet Oral 3 CCINP
-                    <span class="download-message">Téléchargement</span>
-                </a>
-                <span class="loading-animation"></span>
-            </li>
-        </ul>
-    </details>
+        <details>
+            <summary class="category-title">Oral 3</summary>
+            <ul>
+                <li>
+                    <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Sujet Oral 3 CCINP
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+            </ul>
+        </details>
 
-    <!-- Onglet déroulant pour Oral 4 -->
-    <details>
-        <summary class="category-title">Oral 4</summary>
-        <ul>
-            <li>
-                <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
-                    <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
-                    Sujet Oral 4 Centrale Info
-                    <span class="download-message">Téléchargement</span>
-                </a>
-                <span class="loading-animation"></span>
-            </li>
-        </ul>
-    </details>
+        <details>
+            <summary class="category-title">Oral 4</summary>
+            <ul>
+                <li>
+                    <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Sujet Oral 4 Centrale Info
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+            </ul>
+        </details>
+    </div>
+
+    <!-- Kholles Tab Content -->
+    <div id="kholles" class="tabcontent">
+        <h2 class="category-title">Kholles</h2>
+        <!-- Contenu pour les Kholles -->
+        <details>
+            <summary class="category-title">Kholle 1</summary>
+            <ul>
+                <li>
+                    <a href="Kholles/Sujet_kholle_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Sujet Kholle 1
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+                <li>
+                    <a href="Kholles/Corrige_kholle_1.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Corrigé Kholle 1
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+            </ul>
+        </details>
+
+        <details>
+            <summary class="category-title">Kholle 2</summary>
+            <ul>
+                <li>
+                    <a href="Kholles/Sujet_kholle_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Sujet Kholle 2
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+                <li>
+                    <a href="Kholles/Corrige_kholle_2.pdf" download onclick="showMessage(this); showLoadingAnimation(this)">
+                        <span class="download-icon">&#x21E9;</span> <!-- Icône de téléchargement -->
+                        Corrigé Kholle 2
+                        <span class="download-message">Téléchargement</span>
+                    </a>
+                    <span class="loading-animation"></span>
+                </li>
+            </ul>
+        </details>
+    </div>
 
     <script>
         function showMessage(element) {
@@ -221,6 +319,20 @@
             setTimeout(function() {
                 animation.style.display = 'none';
             }, 2000); // Cache l'animation après 2 secondes (simulation de téléchargement)
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
         }
     </script>
 </body>
