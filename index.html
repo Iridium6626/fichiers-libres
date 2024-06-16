@@ -14,6 +14,7 @@
         }
         h1, h2 {
             color: #ffffff;
+            text-shadow: 1px 1px 2px #000000;
         }
         ul {
             list-style-type: none;
@@ -28,13 +29,31 @@
             background-color: #7289da;
             padding: 10px 15px;
             border-radius: 5px;
+            margin-right: 10px;
             transition: background-color 0.3s;
+            position: relative;
         }
         a:hover {
             background-color: #5b6eae;
         }
         a:active {
             background-color: #4a5b8e;
+        }
+        .download-message {
+            display: none;
+            position: absolute;
+            left: 110%;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #7289da;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #ffffff;
+            white-space: nowrap;
+            z-index: 1;
+        }
+        a:active .download-message {
+            display: block;
         }
     </style>
 </head>
@@ -43,24 +62,54 @@
 
     <h2>Oral 1</h2>
     <ul>
-        <li><a href="Oraux_blancs/Sujet_oral_1.pdf" download>Sujet Oral 1</a></li>
-        <li><a href="Oraux_blancs/Tonneau_et_neige.pdf" download>Tonneau et Neige</a></li>
+        <li>
+            <a href="Oraux_blancs/Sujet_oral_1.pdf" download>
+                Sujet Oral 1
+                <span class="download-message">Téléchargé</span>
+            </a>
+        </li>
+        <li>
+            <a href="Oraux_blancs/Tonneau_et_neige.pdf" download>
+                Tonneau et Neige
+                <span class="download-message">Téléchargé</span>
+            </a>
+        </li>
     </ul>
 
     <h2>Oral 2</h2>
     <ul>
-        <li><a href="Oraux_blancs/Sujet_oral_2.pdf" download>Sujet Oral 2</a></li>
-        <li><a href="Oraux_blancs/Cave_et_coin.pdf" download>Cave et Coin</a></li>
+        <li>
+            <a href="Oraux_blancs/Sujet_oral_2.pdf" download>
+                Sujet Oral 2
+                <span class="download-message">Téléchargé</span>
+            </a>
+        </li>
+        <li>
+            <a href="Oraux_blancs/Cave_et_coin.pdf" download>
+                Cave et Coin
+                <span class="download-message">Téléchargé</span>
+            </a>
+        </li>
     </ul>
 
     <h2>Oral 3</h2>
     <ul>
-        <li><a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download>Sujet Oral 3 CCINP</a></li>
+        <li>
+            <a href="Oraux_blancs/Sujet_oral_3_CCINP.pdf" download>
+                Sujet Oral 3 CCINP
+                <span class="download-message">Téléchargé</span>
+            </a>
+        </li>
     </ul>
 
     <h2>Oral 4</h2>
     <ul>
-        <li><a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download>Sujet Oral 4 Centrale Info</a></li>
+        <li>
+            <a href="Oraux_blancs/Sujet_oral_4_Centrale_info.pdf" download>
+                Sujet Oral 4 Centrale Info
+                <span class="download-message">Téléchargé</span>
+            </a>
+        </li>
     </ul>
 </body>
 </html>
